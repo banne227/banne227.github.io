@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baidy Anne — Développeur Full-Stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12181F;
+    --ink-soft:#2B333C;
+    --paper:#EDEAE2;
+    --paper-dim:#E1DDD2;
+    --line:#C9C3B4;
+    --red:#C4402E;
+    --red-dim:#8f2e21;
+    --teal:#3E7D77;
+    --white:#FAF8F4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--red);color:var(--white);}
+
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px;}
+
+  /* corner crop marks — signature motif, echoes an inspection sheet */
+  .sheet{position:relative;}
+  .sheet::before,.sheet::after,
+  .sheet .cm-br,.sheet .cm-bl{
+    content:"";position:absolute;width:16px;height:16px;
+    border-color:var(--ink-soft);opacity:.55;
+  }
+  .sheet::before{top:0;left:0;border-top:1.5px solid;border-left:1.5px solid;}
+  .sheet::after{top:0;right:0;border-top:1.5px solid;border-right:1.5px solid;}
+  .sheet .cm-bl{bottom:0;left:0;border-bottom:1.5px solid;border-left:1.5px solid;}
+  .sheet .cm-br{bottom:0;right:0;border-bottom:1.5px solid;border-right:1.5px solid;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(237,234,226,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .nav-id{font-size:14px;letter-spacing:.03em;}
+  .nav-id b{font-weight:600;}
+  .nav-links{display:flex;gap:28px;font-size:13px;}
+  .nav-links a{
+    color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:.08em;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    transition:color .15s;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--red);}
+  @media(max-width:640px){.nav-links{gap:16px;} .nav-links span.n{display:none;}}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--teal);
+  }
+  h1.display{
+    font-size:clamp(40px,6.4vw,74px);
+    font-weight:600;
+    line-height:1.02;
+    letter-spacing:-.02em;
+    max-width:820px;
+  }
+  h1.display em{
+    font-style:normal;color:var(--red);
+  }
+  .hero-sub{
+    margin-top:26px;
+    max-width:560px;
+    font-size:17px;
+    color:var(--ink-soft);
+  }
+  .hero-meta{
+    margin-top:44px;
+    display:flex;flex-wrap:wrap;gap:0;
+    border-top:1px solid var(--line);
+  }
+  .hero-meta div{
+    flex:1 1 160px;
+    padding:16px 20px 16px 0;
+    border-right:1px solid var(--line);
+  }
+  .hero-meta div:last-child{border-right:none;}
+  .hero-meta .k{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .hero-meta .v{font-size:14px;font-weight:500;}
+  @media(max-width:700px){.hero-meta div{flex:1 1 45%;border-right:none;border-bottom:1px solid var(--line);}}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:80px 0;border-bottom:1px solid var(--line);}
+  .sec-head{
+    display:flex;align-items:baseline;gap:16px;margin-bottom:48px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono',monospace;color:var(--red);
+    font-size:13px;
+  }
+  .sec-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:28px;font-weight:600;letter-spacing:-.01em;
+  }
+  .sec-rule{flex:1;height:1px;background:var(--line);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:56px;
+  }
+  .about-text p{font-size:17px;color:var(--ink-soft);max-width:520px;}
+  .about-text p+p{margin-top:16px;}
+  .stamp{
+    justify-self:end;align-self:start;
+    border:1.5px solid var(--red);
+    color:var(--red);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    padding:14px 18px;
+    transform:rotate(3deg);
+    width:fit-content;
+  }
+  .stamp .big{display:block;font-size:20px;font-weight:600;margin-top:4px;letter-spacing:.04em;}
+  @media(max-width:700px){.about-grid{grid-template-columns:1fr;} .stamp{justify-self:start;}}
+
+  /* ---------- PROJECTS ---------- */
+  .proj{
+    border:1px solid var(--line);
+    background:var(--white);
+    margin-bottom:24px;
+    padding:28px 30px 26px;
+  }
+  .proj-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;margin-bottom:14px;
+  }
+  .proj-ref{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);
+    letter-spacing:.06em;
+  }
+  .proj-title{
+    font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;
+    margin-top:4px;
+  }
+  .proj-status{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);
+    padding:4px 9px;white-space:nowrap;height:fit-content;
+  }
+  .proj-pitch{font-size:15px;color:var(--ink-soft);max-width:640px;margin-bottom:18px;}
+  .proj-stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    background:var(--paper-dim);border:1px solid var(--line);
+    padding:4px 9px;color:var(--ink-soft);
+  }
+  .proj-links{display:flex;gap:18px;font-size:13px;}
+  .proj-links a{
+    color:var(--red);font-family:'IBM Plex Mono',monospace;font-size:12px;
+    border-bottom:1px solid transparent;
+  }
+  .proj-links a:hover{border-bottom-color:var(--red);}
+  .proj-links .disabled{color:var(--ink-soft);opacity:.6;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px;}
+  .skill-group h4{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--red);margin-bottom:14px;
+    padding-bottom:8px;border-bottom:1px solid var(--line);
+  }
+  .skill-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-list span{
+    font-size:13px;padding:6px 11px;background:var(--white);
+    border:1px solid var(--line);
+  }
+  @media(max-width:700px){.skill-groups{grid-template-columns:1fr;}}
+
+  /* ---------- CONTACT ---------- */
+  footer{padding:80px 0 56px;}
+  .contact-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(30px,5vw,48px);font-weight:600;letter-spacing:-.01em;
+    max-width:620px;margin-bottom:32px;
+  }
+  .contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px;}
+  .contact-row a{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    border:1px solid var(--ink);padding:12px 20px;
+    transition:background .15s,color .15s;
+  }
+  .contact-row a:hover{background:var(--ink);color:var(--paper);}
+  .contact-row a.primary{background:var(--red);border-color:var(--red);color:var(--white);}
+  .contact-row a.primary:hover{background:var(--red-dim);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);
+    padding-top:24px;border-top:1px solid var(--line);
+  }
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-id mono"><b>BAIDY ANNE</b> <span class="n">— dossier technique</span></div>
+    <div class="nav-links">
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero sheet">
+  <div class="cm-bl"></div><div class="cm-br"></div>
+  <div class="wrap">
+    <div class="eyebrow">Disponible pour missions freelance</div>
+    <h1 class="display">Développeur full-stack.<br>Automatisation &amp; <em>intégration IA</em>.</h1>
+    <p class="hero-sub">Je conçois des outils sur mesure — automatisation de tâches, applications web, intégration d'IA — pour répondre à des besoins métier concrets.</p>
+    <div class="hero-meta">
+      <div><div class="k mono">Poste actuel</div><div class="v">Alternant développeur full-stack — Inexco Group</div></div>
+      <div><div class="k mono">Secteur</div><div class="v">Contrôle non destructif (naval, nucléaire, pétrochimie, aéro.)</div></div>
+      <div><div class="k mono">Formation</div><div class="v">École 42</div></div>
+      <div><div class="k mono">Base</div><div class="v">France</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="apropos">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">01</span><h2 class="sec-title">À propos</h2><div class="sec-rule"></div></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Je suis Baidy Anne, développeur full-stack en alternance chez Inexco Group, spécialiste du contrôle non destructif pour les secteurs naval, nucléaire, pétrochimique et aéronautique. En parallèle, je poursuis ma formation à l'École 42.</p>
+        <p>Ce double ancrage — terrain industriel exigeant et culture du code sans filet — nourrit ma façon de construire : des outils robustes, pensés pour un usage réel, du script d'automatisation à l'application web complète.</p>
+      </div>
+      <div class="stamp reveal">Profil<span class="big">Full-Stack</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">02</span><h2 class="sec-title">Projets</h2><div class="sec-rule"></div></div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <div>
+          <div class="proj-ref">REF-01 · AUTOMATISATION</div>
+          <div class="proj-title">Automatiseur de rapports</div>
+        </div>
+        <div class="proj-status">Terminé</div>
+      </div>
+      <p class="proj-pitch">Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">matplotlib</span><span class="tag">fpdf</span><span class="tag">CLI / argparse</span>
+      </div>
+      <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener">→ Voir le repo</a></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <div>
+          <div class="proj-ref">REF-02 · INTÉGRATION IA</div>
+          <div class="proj-title">Assistant IA sur mesure</div>
+        </div>
+        <div class="proj-status">Terminé</div>
+      </div>
+      <p class="proj-pitch">Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini API</span><span class="tag">HTML/CSS/JS</span><span class="tag">Render</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://ai-assistant-eiq1.onrender.com" target="_blank" rel="noopener">→ Démo en ligne</a>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <div>
+          <div class="proj-ref">REF-03 · VEILLE AUTOMATISÉE</div>
+          <div class="proj-title">Bot de veille</div>
+        </div>
+        <div class="proj-status">Terminé</div>
+      </div>
+      <p class="proj-pitch">Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">requests</span><span class="tag">BeautifulSoup</span><span class="tag">cron</span><span class="tag">SMTP</span>
+      </div>
+      <div class="proj-links"><a href="https://github.com/banne227/monitoring_bot" target="_blank" rel="noopener">→ Voir le repo</a></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <div>
+          <div class="proj-ref">REF-04 · PROJET D'ÉQUIPE — 42</div>
+          <div class="proj-title">ft_transcendence</div>
+        </div>
+        <div class="proj-status">Terminé</div>
+      </div>
+      <p class="proj-pitch">Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.</p>
+      <div class="proj-stack">
+        <span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">MongoDB</span><span class="tag">Tailwind CSS</span><span class="tag">Docker / nginx</span><span class="tag">Chart.js</span>
+      </div>
+      <div class="proj-links"><a href="https://github.com/banne227/ft_transcendence" target="_blank" rel="noopener">→ Voir le repo</a></div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <div>
+          <div class="proj-ref">REF-05 · APPRENTISSAGE PAR RENFORCEMENT — 42</div>
+          <div class="proj-title">Learn2Slither</div>
+        </div>
+        <div class="proj-status">Terminé</div>
+      </div>
+      <p class="proj-pitch">Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.</p>
+      <div class="proj-stack">
+        <span class="tag">Python</span><span class="tag">Q-learning</span><span class="tag">pygame</span>
+      </div>
+      <div class="proj-links"><a href="https://github.com/banne227/learn2slither" target="_blank" rel="noopener">→ Voir le repo</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">03</span><h2 class="sec-title">Compétences</h2><div class="sec-rule"></div></div>
+    <div class="skill-groups">
+      <div class="skill-group reveal">
+        <h4>Langages</h4>
+        <div class="skill-list">
+          <span>C</span><span>C++</span><span>Python</span><span>TypeScript</span><span>JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Web &amp; backend</h4>
+        <div class="skill-list">
+          <span>FastAPI</span><span>Node.js</span><span>Socket.io</span><span>WebSocket</span><span>HTML / CSS / JS</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Données &amp; automatisation</h4>
+        <div class="skill-list">
+          <span>pandas</span><span>openpyxl</span><span>matplotlib</span><span>fpdf</span><span>BeautifulSoup</span><span>cron / scheduling</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>IA &amp; machine learning</h4>
+        <div class="skill-list">
+          <span>API Gemini (google-genai)</span><span>Streaming de réponses</span><span>Q-learning</span><span>pygame</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Infrastructure &amp; outils</h4>
+        <div class="skill-list">
+          <span>Docker</span><span>nginx</span><span>Git / GitHub</span><span>Déploiement cloud (Render)</span><span>SMTP</span><span>Logging</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Bases de données</h4>
+        <div class="skill-list">
+          <span>MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num mono">04</span><h2 class="sec-title">Contact</h2><div class="sec-rule"></div></div>
+    <div class="contact-title">Un projet d'automatisation ou d'intégration IA à concrétiser ?</div>
+    <div class="contact-row">
+      <a class="primary" href="mailto:baidyanne9@gmail.com">baidyanne9@gmail.com</a>
+      <a href="www.linkedin.com/in/baïdy-anne" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/banne227" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Baidy Anne</span>
+      <span>Conçu &amp; développé sur-mesure</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
