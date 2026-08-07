@@ -17,6 +17,7 @@
     --panel:#F7F7F6;
     --accent:#2F5D50;
     --accent-soft:#EAF0EE;
+    --bad:#B3492F;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -86,6 +87,22 @@
   .sec-title{font-family:'Sora',sans-serif;font-size:30px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px;}
   .sec-desc{color:var(--ink-soft);max-width:600px;font-size:16px;margin-bottom:52px;}
 
+  /* ---------- CIBLES ---------- */
+  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .fit-col{background:var(--paper);padding:32px;}
+  .fit-col h3{font-family:'Sora',sans-serif;font-size:17px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+  .fit-col.yes h3{color:var(--accent);}
+  .fit-col.no h3{color:var(--bad);}
+  .fit-dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .fit-col.yes .fit-dot{background:var(--accent);}
+  .fit-col.no .fit-dot{background:var(--bad);}
+  .fit-col ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+  .fit-col li{font-size:14.5px;color:var(--ink-soft);padding-left:18px;position:relative;}
+  .fit-col li::before{position:absolute;left:0;top:0;font-size:14px;}
+  .fit-col.yes li::before{content:"✓";color:var(--accent);font-weight:600;}
+  .fit-col.no li::before{content:"–";color:var(--bad);font-weight:600;}
+  @media(max-width:700px){.fit-grid{grid-template-columns:1fr;}}
+
   /* ---------- ABOUT ---------- */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
   .about-text p{font-size:16.5px;color:var(--ink-soft);}
@@ -152,6 +169,7 @@
   <div class="wrap">
     <div class="nav-id">Baidy Anne</div>
     <div class="nav-links">
+      <a href="#cibles">Pour qui</a>
       <a href="#apropos">À propos</a>
       <a href="#projets">Projets</a>
       <a href="#competences">Compétences</a>
@@ -178,6 +196,33 @@
     </div>
   </div>
 </header>
+
+<section id="cibles" class="alt">
+  <div class="wrap">
+    <div class="sec-label">Pour qui</div>
+    <h2 class="sec-title">Je travaille principalement avec des TPE et PME</h2>
+    <p class="sec-desc">Des structures qui perdent du temps sur des tâches répétitives ou qui veulent intégrer l'IA sans construire une équipe technique en interne. Voici comment savoir rapidement si on peut travailler ensemble.</p>
+    <div class="fit-grid">
+      <div class="fit-col yes reveal">
+        <h3><span class="fit-dot"></span>On peut travailler ensemble si</h3>
+        <ul>
+          <li>Vous êtes une TPE, PME, ou indépendant avec un besoin métier concret à automatiser</li>
+          <li>Vous perdez du temps sur des tâches répétitives (rapports, veille, saisie, suivi)</li>
+          <li>Vous voulez intégrer l'IA dans un outil existant sans recruter une équipe dédiée</li>
+          <li>Vous cherchez un interlocuteur unique, du cadrage à la livraison</li>
+          <li>Un périmètre clair et un forfait vous conviennent mieux qu'un devis au temps passé</li>
+        </ul>
+      </div>
+      <div class="fit-col no reveal">
+        <h3><span class="fit-dot"></span>Ce n'est probablement pas pour vous si</h3>
+        <ul>
+          <li>Vous cherchez à staffer une équipe produit complète sur le long terme</li>
+          <li>Le projet nécessite une disponibilité à temps plein immédiate</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="apropos">
   <div class="wrap">
@@ -213,7 +258,7 @@
         </div>
         <p class="proj-pitch">Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">matplotlib</span><span class="tag">fpdf</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener">Voir le repo →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener">Voir le projet →</a></div>
       </div>
 
       <div class="proj reveal">
@@ -233,7 +278,7 @@
         </div>
         <p class="proj-pitch">Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">requests</span><span class="tag">BeautifulSoup</span><span class="tag">cron</span><span class="tag">SMTP</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/monitoring_bot" target="_blank" rel="noopener">Voir le repo →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/monitoring_bot" target="_blank" rel="noopener">Voir le projet →</a></div>
       </div>
 
       <div class="proj reveal">
@@ -243,7 +288,7 @@
         </div>
         <p class="proj-pitch">Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.</p>
         <div class="proj-stack"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">MongoDB</span><span class="tag">Tailwind CSS</span><span class="tag">Docker / nginx</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/ft_transcendence" target="_blank" rel="noopener">Voir le repo →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/ft_transcendence" target="_blank" rel="noopener">Voir le projet →</a></div>
       </div>
 
       <div class="proj reveal">
@@ -253,7 +298,7 @@
         </div>
         <p class="proj-pitch">Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">Q-learning</span><span class="tag">pygame</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/learn2slither" target="_blank" rel="noopener">Voir le repo →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/learn2slither" target="_blank" rel="noopener">Voir le projet →</a></div>
       </div>
     </div>  
   </div>
@@ -329,7 +374,7 @@
       <div class="contact-title">Un projet d'automatisation ou d'intégration IA à concrétiser ?</div>
       <div class="contact-row">
         <a class="primary" href="mailto:baidyanne9@gmail.com">baidyanne9@gmail.com</a>
-        <a class="secondary" href="www.linkedin.com/in/baïdy-anne" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="secondary" href="https://www.linkedin.com/in/baïdy-anne" target="_blank" rel="noopener">LinkedIn</a>
         <a class="secondary" href="https://github.com/banne227" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
