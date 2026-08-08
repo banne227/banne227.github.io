@@ -42,7 +42,7 @@
   }
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
   .nav-id{font-family:'Sora',sans-serif;font-weight:600;font-size:15px;}
-  .nav-links{display:flex;align-items:center;gap:32px;font-size:14px;}
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:14px;}
   .nav-links a{color:var(--ink-soft);transition:color .15s;}
   .nav-links a:hover{color:var(--ink);}
   .nav-links a.cta{
@@ -50,7 +50,16 @@
     padding:9px 18px;border-radius:6px;font-weight:500;
   }
   .nav-links a.cta:hover{background:var(--accent);}
-  @media(max-width:640px){.nav-links a:not(.cta){display:none;}}
+  .lang-toggle{
+    display:flex;align-items:center;border:1px solid var(--line);border-radius:100px;
+    padding:3px;gap:2px;flex:none;
+  }
+  .lang-toggle button{
+    border:none;background:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+    padding:6px 12px;border-radius:100px;color:var(--ink-soft);cursor:pointer;transition:.15s;
+  }
+  .lang-toggle button.active{background:var(--ink);color:#fff;}
+  @media(max-width:640px){.nav-links a:not(.cta):not(.lang-item){display:none;}}
 
   /* ---------- HERO ---------- */
   header.hero{padding:110px 0 90px;}
@@ -160,7 +169,7 @@
   .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;}}
-  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 </style>
 </head>
 <body>
@@ -169,55 +178,59 @@
   <div class="wrap">
     <div class="nav-id">Baidy Anne</div>
     <div class="nav-links">
-      <a href="#cibles">Pour qui</a>
-      <a href="#apropos">À propos</a>
-      <a href="#projets">Projets</a>
-      <a href="#competences">Compétences</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="cta">Me contacter</a>
+      <a href="#cibles" data-i18n="nav.cibles">Pour qui</a>
+      <a href="#apropos" data-i18n="nav.apropos">À propos</a>
+      <a href="#projets" data-i18n="nav.projets">Projets</a>
+      <a href="#competences" data-i18n="nav.competences">Compétences</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#contact" class="cta" data-i18n="nav.contact">Me contacter</a>
+      <div class="lang-toggle lang-item" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" class="active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Disponible pour missions freelance</div>
-    <h1 class="display">Développeur full-stack, spécialisé automatisation &amp; intégration IA.</h1>
-    <p class="hero-sub">Je conçois des outils sur mesure — automatisation de tâches, applications web, intégration d'IA — pour répondre à des besoins métier concrets.</p>
+    <div class="eyebrow" data-i18n="hero.eyebrow">Disponible pour missions freelance</div>
+    <h1 class="display" data-i18n="hero.title">Développeur full-stack, spécialisé automatisation &amp; intégration IA.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Je conçois des outils sur mesure — automatisation de tâches, applications web, intégration d'IA — pour répondre à des besoins métier concrets.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Discuter d'un projet</a>
-      <a href="#projets" class="btn btn-secondary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Discuter d'un projet</a>
+      <a href="#projets" class="btn btn-secondary" data-i18n="hero.cta2">Voir mes projets</a>
     </div>
     <div class="hero-stats">
-      <div><div class="num">5</div><div class="lab">Projets réalisés</div></div>
-      <div><div class="num">2</div><div class="lab">Ans à l'École 42</div></div>
-      <div><div class="num">4</div><div class="lab">Langages maîtrisés</div></div>
-      <div><div class="num">1</div><div class="lab">Alternance en cours</div></div>
+      <div><div class="num">5</div><div class="lab" data-i18n="hero.stat1">Projets réalisés</div></div>
+      <div><div class="num">2</div><div class="lab" data-i18n="hero.stat2">Ans à l'École 42</div></div>
+      <div><div class="num">4</div><div class="lab" data-i18n="hero.stat3">Langages maîtrisés</div></div>
+      <div><div class="num">1</div><div class="lab" data-i18n="hero.stat4">Alternance en cours</div></div>
     </div>
   </div>
 </header>
 
 <section id="cibles" class="alt">
   <div class="wrap">
-    <div class="sec-label">Pour qui</div>
-    <h2 class="sec-title">Je travaille principalement avec des TPE et PME</h2>
-    <p class="sec-desc">Des structures qui perdent du temps sur des tâches répétitives ou qui veulent intégrer l'IA sans construire une équipe technique en interne. Voici comment savoir rapidement si on peut travailler ensemble.</p>
+    <div class="sec-label" data-i18n="cibles.label">Pour qui</div>
+    <h2 class="sec-title" data-i18n="cibles.title">Je travaille principalement avec des TPE et PME</h2>
+    <p class="sec-desc" data-i18n="cibles.desc">Des structures qui perdent du temps sur des tâches répétitives ou qui veulent intégrer l'IA sans construire une équipe technique en interne. Voici comment savoir rapidement si on peut travailler ensemble.</p>
     <div class="fit-grid">
       <div class="fit-col yes reveal">
-        <h3><span class="fit-dot"></span>On peut travailler ensemble si</h3>
+        <h3><span class="fit-dot"></span><span data-i18n="cibles.yesTitle">On peut travailler ensemble si</span></h3>
         <ul>
-          <li>Vous êtes une TPE, PME, ou indépendant avec un besoin métier concret à automatiser</li>
-          <li>Vous perdez du temps sur des tâches répétitives (rapports, veille, saisie, suivi)</li>
-          <li>Vous voulez intégrer l'IA dans un outil existant sans recruter une équipe dédiée</li>
-          <li>Vous cherchez un interlocuteur unique, du cadrage à la livraison</li>
-          <li>Un périmètre clair et un forfait vous conviennent mieux qu'un devis au temps passé</li>
+          <li data-i18n="cibles.yes0">Vous êtes une TPE, PME, ou indépendant avec un besoin métier concret à automatiser</li>
+          <li data-i18n="cibles.yes1">Vous perdez du temps sur des tâches répétitives (rapports, veille, saisie, suivi)</li>
+          <li data-i18n="cibles.yes2">Vous voulez intégrer l'IA dans un outil existant sans recruter une équipe dédiée</li>
+          <li data-i18n="cibles.yes3">Vous cherchez un interlocuteur unique, du cadrage à la livraison</li>
+          <li data-i18n="cibles.yes4">Un périmètre clair et un forfait vous conviennent mieux qu'un devis au temps passé</li>
         </ul>
       </div>
       <div class="fit-col no reveal">
-        <h3><span class="fit-dot"></span>Ce n'est probablement pas pour vous si</h3>
+        <h3><span class="fit-dot"></span><span data-i18n="cibles.noTitle">Ce n'est probablement pas pour vous si</span></h3>
         <ul>
-          <li>Vous cherchez à staffer une équipe produit complète sur le long terme</li>
-          <li>Le projet nécessite une disponibilité à temps plein immédiate</li>
+          <li data-i18n="cibles.no0">Vous cherchez à staffer une équipe produit complète sur le long terme</li>
+          <li data-i18n="cibles.no1">Le projet nécessite une disponibilité à temps plein immédiate</li>
         </ul>
       </div>
     </div>
@@ -226,19 +239,19 @@
 
 <section id="apropos">
   <div class="wrap">
-    <div class="sec-label">À propos</div>
-    <h2 class="sec-title">Un profil double compétence</h2>
+    <div class="sec-label" data-i18n="about.label">À propos</div>
+    <h2 class="sec-title" data-i18n="about.title">Un profil double compétence</h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Je suis Baidy Anne, développeur full-stack en alternance chez Inexco Group, spécialiste du contrôle non destructif pour les secteurs naval, nucléaire, pétrochimique et aéronautique. En parallèle, je poursuis ma formation à l'École 42.</p>
-        <p>Ce double ancrage — terrain industriel exigeant et culture du code sans filet — nourrit ma façon de construire : des outils robustes, pensés pour un usage réel, du script d'automatisation à l'application web complète.</p>
+        <p data-i18n="about.p1">Je suis Baidy Anne, développeur full-stack en alternance chez Inexco Group, spécialiste du contrôle non destructif pour les secteurs naval, nucléaire, pétrochimique et aéronautique. En parallèle, je poursuis ma formation à l'École 42.</p>
+        <p data-i18n="about.p2">Ce double ancrage — terrain industriel exigeant et culture du code sans filet — nourrit ma façon de construire : des outils robustes, pensés pour un usage réel, du script d'automatisation à l'application web complète.</p>
       </div>
       <div class="fact-list reveal">
-        <div><span class="k">Poste actuel</span><span class="v">Alternant développeur full-stack — Inexco Group</span></div>
-        <div><span class="k">Secteur</span><span class="v">Contrôle non destructif</span></div>
-        <div><span class="k">Formation</span><span class="v">École 42</span></div>
-        <div><span class="k">Localisation</span><span class="v">France</span></div>
-        <div><span class="k">Disponibilité</span><span class="v">Missions freelance ponctuelles</span></div>
+        <div><span class="k" data-i18n="about.k1">Poste actuel</span><span class="v" data-i18n="about.v1">Alternant développeur full-stack — Inexco Group</span></div>
+        <div><span class="k" data-i18n="about.k2">Secteur</span><span class="v" data-i18n="about.v2">Contrôle non destructif</span></div>
+        <div><span class="k" data-i18n="about.k3">Formation</span><span class="v" data-i18n="about.v3">École 42</span></div>
+        <div><span class="k" data-i18n="about.k4">Localisation</span><span class="v" data-i18n="about.v4">France</span></div>
+        <div><span class="k" data-i18n="about.k5">Disponibilité</span><span class="v" data-i18n="about.v5">Missions freelance ponctuelles</span></div>
       </div>
     </div>
   </div>
@@ -246,59 +259,59 @@
 
 <section id="projets" class="alt">
   <div class="wrap">
-    <div class="sec-label">Projets</div>
-    <h2 class="sec-title">Ce que j'ai construit</h2>
-    <p class="sec-desc">Une sélection de projets, des outils métier livrés en autonomie aux projets techniques menés en équipe à l'École 42.</p>
+    <div class="sec-label" data-i18n="projets.label">Projets</div>
+    <h2 class="sec-title" data-i18n="projets.title">Ce que j'ai construit</h2>
+    <p class="sec-desc" data-i18n="projets.desc">Une sélection de projets, des outils métier livrés en autonomie aux projets techniques menés en équipe à l'École 42.</p>
 
     <div class="proj-grid">
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title">Automatiseur de rapports</div><div class="proj-cat">Automatisation</div></div>
-          <div class="proj-status">Terminé</div>
+          <div><div class="proj-title" data-i18n="proj.0.title">Automatiseur de rapports</div><div class="proj-cat" data-i18n="proj.0.cat">Automatisation</div></div>
+          <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch">Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.</p>
+        <p class="proj-pitch" data-i18n="proj.0.pitch">Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">matplotlib</span><span class="tag">fpdf</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener">Voir le projet →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
       </div>
 
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title">Assistant IA sur mesure</div><div class="proj-cat">Intégration IA</div></div>
-          <div class="proj-status">Terminé</div>
+          <div><div class="proj-title" data-i18n="proj.1.title">Assistant IA sur mesure</div><div class="proj-cat" data-i18n="proj.1.cat">Intégration IA</div></div>
+          <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch">Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.</p>
+        <p class="proj-pitch" data-i18n="proj.1.pitch">Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini API</span><span class="tag">HTML/CSS/JS</span><span class="tag">Render</span></div>
-        <div class="proj-links"><a href="https://ai-assistant-eiq1.onrender.com" target="_blank" rel="noopener">Démo en ligne →</a></div>
+        <div class="proj-links"><a href="https://ai-assistant-eiq1.onrender.com" target="_blank" rel="noopener" data-i18n="proj.linkDemo">Démo en ligne →</a></div>
       </div>
 
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title">Bot de veille</div><div class="proj-cat">Veille automatisée</div></div>
-          <div class="proj-status">Terminé</div>
+          <div><div class="proj-title" data-i18n="proj.2.title">Bot de veille</div><div class="proj-cat" data-i18n="proj.2.cat">Veille automatisée</div></div>
+          <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch">Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.</p>
+        <p class="proj-pitch" data-i18n="proj.2.pitch">Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">requests</span><span class="tag">BeautifulSoup</span><span class="tag">cron</span><span class="tag">SMTP</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/monitoring_bot" target="_blank" rel="noopener">Voir le projet →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/monitoring_bot" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
       </div>
 
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title">ft_transcendence</div><div class="proj-cat">Projet d'équipe — École 42</div></div>
-          <div class="proj-status">Terminé</div>
+          <div><div class="proj-title">ft_transcendence</div><div class="proj-cat" data-i18n="proj.3.cat">Projet d'équipe — École 42</div></div>
+          <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch">Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.</p>
+        <p class="proj-pitch" data-i18n="proj.3.pitch">Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.</p>
         <div class="proj-stack"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">MongoDB</span><span class="tag">Tailwind CSS</span><span class="tag">Docker / nginx</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/ft_transcendence" target="_blank" rel="noopener">Voir le projet →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/ft_transcendence" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
       </div>
 
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title">Learn2Slither</div><div class="proj-cat">Apprentissage par renforcement — École 42</div></div>
-          <div class="proj-status">Terminé</div>
+          <div><div class="proj-title">Learn2Slither</div><div class="proj-cat" data-i18n="proj.4.cat">Apprentissage par renforcement — École 42</div></div>
+          <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch">Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.</p>
+        <p class="proj-pitch" data-i18n="proj.4.pitch">Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">Q-learning</span><span class="tag">pygame</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/learn2slither" target="_blank" rel="noopener">Voir le projet →</a></div>
+        <div class="proj-links"><a href="https://github.com/banne227/learn2slither" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
       </div>
     </div>  
   </div>
@@ -306,32 +319,32 @@
 
 <section id="competences">
   <div class="wrap">
-    <div class="sec-label">Compétences</div>
-    <h2 class="sec-title">Stack technique</h2>
-    <p class="sec-desc">Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42 et les projets vitrine.</p>
+    <div class="sec-label" data-i18n="competences.label">Compétences</div>
+    <h2 class="sec-title" data-i18n="competences.title">Stack technique</h2>
+    <p class="sec-desc" data-i18n="competences.desc">Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42 et les projets vitrine.</p>
     <div class="skill-groups">
       <div class="skill-group reveal">
-        <h4>Langages</h4>
+        <h4 data-i18n="competences.g1">Langages</h4>
         <div class="skill-list"><span>C</span><span>C++</span><span>Python</span><span>TypeScript</span><span>JavaScript</span></div>
       </div>
       <div class="skill-group reveal">
-        <h4>Web &amp; backend</h4>
+        <h4 data-i18n="competences.g2">Web &amp; backend</h4>
         <div class="skill-list"><span>FastAPI</span><span>Node.js</span><span>Socket.io</span><span>WebSocket</span><span>REST</span><span>HTML / CSS / JS</span></div>
       </div>
       <div class="skill-group reveal">
-        <h4>Données &amp; automatisation</h4>
+        <h4 data-i18n="competences.g3">Données &amp; automatisation</h4>
         <div class="skill-list"><span>pandas</span><span>openpyxl</span><span>matplotlib</span><span>fpdf</span><span>BeautifulSoup</span><span>cron</span></div>
       </div>
       <div class="skill-group reveal">
-        <h4>IA &amp; machine learning</h4>
-        <div class="skill-list"><span>API Gemini</span><span>Streaming</span><span>Q-learning</span><span>pygame</span></div>
+        <h4 data-i18n="competences.g4">IA &amp; machine learning</h4>
+        <div class="skill-list"><span>API Gemini</span><span data-i18n="competences.streaming">Streaming</span><span>Q-learning</span><span>pygame</span></div>
       </div>
       <div class="skill-group reveal">
-        <h4>Infrastructure &amp; outils</h4>
-        <div class="skill-list"><span>Docker</span><span>nginx</span><span>Git / GitHub</span><span>Render</span><span>SMTP</span><span>Logging</span></div>
+        <h4 data-i18n="competences.g5">Infrastructure &amp; outils</h4>
+        <div class="skill-list"><span>Docker</span><span>nginx</span><span>Git / GitHub</span><span>Render</span><span>SMTP</span><span data-i18n="competences.logging">Logging</span></div>
       </div>
       <div class="skill-group reveal">
-        <h4>Bases de données</h4>
+        <h4 data-i18n="competences.g6">Bases de données</h4>
         <div class="skill-list"><span>MongoDB</span></div>
       </div>
     </div>
@@ -340,28 +353,28 @@
 
 <section id="faq" class="alt">
   <div class="wrap">
-    <div class="sec-label">FAQ</div>
-    <h2 class="sec-title">Questions fréquentes</h2>
+    <div class="sec-label" data-i18n="faq.label">FAQ</div>
+    <h2 class="sec-title" data-i18n="faq.title">Questions fréquentes</h2>
     <div class="faq-list reveal">
       <details class="faq-item">
-        <summary>Quel type de mission peux-tu prendre en charge ?<span class="plus">+</span></summary>
-        <div class="faq-a">Principalement des projets d'automatisation (scripts, rapports, veille) et d'intégration IA (chatbots, assistants métier, connexion à des API type OpenAI/Gemini), ainsi que des applications web sur mesure de bout en bout.</div>
+        <summary><span data-i18n="faq.q1">Quel type de mission peux-tu prendre en charge ?</span><span class="plus">+</span></summary>
+        <div class="faq-a" data-i18n="faq.a1">Principalement des projets d'automatisation (scripts, rapports, veille) et d'intégration IA (chatbots, assistants métier, connexion à des API type OpenAI/Gemini), ainsi que des applications web sur mesure de bout en bout.</div>
       </details>
       <details class="faq-item">
-        <summary>Es-tu disponible à temps plein ?<span class="plus">+</span></summary>
-        <div class="faq-a">Je suis actuellement en alternance chez Inexco Group et étudiant à l'École 42. Je prends des missions freelance ponctuelles, en dehors de ce cadre — contactez-moi pour évoquer vos délais et disponibilités.</div>
+        <summary><span data-i18n="faq.q2">Es-tu disponible à temps plein ?</span><span class="plus">+</span></summary>
+        <div class="faq-a" data-i18n="faq.a2">Je suis actuellement en alternance chez Inexco Group et étudiant à l'École 42. Je prends des missions freelance ponctuelles, en dehors de ce cadre — contactez-moi pour évoquer vos délais et disponibilités.</div>
       </details>
       <details class="faq-item">
-        <summary>Travailles-tu seul ou en équipe ?<span class="plus">+</span></summary>
-        <div class="faq-a">Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment en tant que tech lead sur ft_transcendence.</div>
+        <summary><span data-i18n="faq.q3">Travailles-tu seul ou en équipe ?</span><span class="plus">+</span></summary>
+        <div class="faq-a" data-i18n="faq.a3">Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment en tant que tech lead sur ft_transcendence.</div>
       </details>
       <details class="faq-item">
-        <summary>Comment se déroule une collaboration ?<span class="plus">+</span></summary>
-        <div class="faq-a">On échange d'abord sur votre besoin et vos contraintes, je propose une approche technique et une estimation, puis je livre par itérations courtes avec des points réguliers pour ajuster en cours de route.</div>
+        <summary><span data-i18n="faq.q4">Comment se déroule une collaboration ?</span><span class="plus">+</span></summary>
+        <div class="faq-a" data-i18n="faq.a4">On échange d'abord sur votre besoin et vos contraintes, je propose une approche technique et une estimation, puis je livre par itérations courtes avec des points réguliers pour ajuster en cours de route.</div>
       </details>
       <details class="faq-item">
-        <summary>Comment te contacter ?<span class="plus">+</span></summary>
-        <div class="faq-a">Le plus simple est par email ou LinkedIn — les deux sont accessibles directement en bas de page.</div>
+        <summary><span data-i18n="faq.q5">Comment te contacter ?</span><span class="plus">+</span></summary>
+        <div class="faq-a" data-i18n="faq.a5">Le plus simple est par email ou LinkedIn — les deux sont accessibles directement en bas de page.</div>
       </details>
     </div>
   </div>
@@ -370,8 +383,8 @@
 <footer id="contact">
   <div class="wrap">
     <div class="contact-box reveal">
-      <div class="sec-label">Contact</div>
-      <div class="contact-title">Un projet d'automatisation ou d'intégration IA à concrétiser ?</div>
+      <div class="sec-label" data-i18n="contact.label">Contact</div>
+      <div class="contact-title" data-i18n="contact.title">Un projet d'automatisation ou d'intégration IA à concrétiser ?</div>
       <div class="contact-row">
         <a class="primary" href="mailto:baidyanne9@gmail.com">baidyanne9@gmail.com</a>
         <a class="secondary" href="https://www.linkedin.com/in/baïdy-anne" target="_blank" rel="noopener">LinkedIn</a>
@@ -380,12 +393,158 @@
     </div>
     <div class="foot-bottom wrap" style="padding-left:0;padding-right:0;">
       <span>© 2026 Baidy Anne</span>
-      <span>Conçu &amp; développé sur-mesure</span>
+      <span data-i18n="footer.made">Conçu &amp; développé sur-mesure</span>
     </div>
   </div>
 </footer>
 
 <script>
+  const translations = {
+    fr: {
+      "nav.cibles":"Pour qui","nav.apropos":"À propos","nav.projets":"Projets","nav.competences":"Compétences","nav.faq":"FAQ","nav.contact":"Me contacter",
+      "hero.eyebrow":"Disponible pour missions freelance",
+      "hero.title":"Développeur full-stack, spécialisé automatisation &amp; intégration IA.",
+      "hero.sub":"Je conçois des outils sur mesure — automatisation de tâches, applications web, intégration d'IA — pour répondre à des besoins métier concrets.",
+      "hero.cta1":"Discuter d'un projet","hero.cta2":"Voir mes projets",
+      "hero.stat1":"Projets réalisés","hero.stat2":"Ans à l'École 42","hero.stat3":"Langages maîtrisés","hero.stat4":"Alternance en cours",
+      "cibles.label":"Pour qui",
+      "cibles.title":"Je travaille principalement avec des TPE et PME",
+      "cibles.desc":"Des structures qui perdent du temps sur des tâches répétitives ou qui veulent intégrer l'IA sans construire une équipe technique en interne. Voici comment savoir rapidement si on peut travailler ensemble.",
+      "cibles.yesTitle":"On peut travailler ensemble si",
+      "cibles.yes0":"Vous êtes une TPE, PME, ou indépendant avec un besoin métier concret à automatiser",
+      "cibles.yes1":"Vous perdez du temps sur des tâches répétitives (rapports, veille, saisie, suivi)",
+      "cibles.yes2":"Vous voulez intégrer l'IA dans un outil existant sans recruter une équipe dédiée",
+      "cibles.yes3":"Vous cherchez un interlocuteur unique, du cadrage à la livraison",
+      "cibles.yes4":"Un périmètre clair et un forfait vous conviennent mieux qu'un devis au temps passé",
+      "cibles.noTitle":"Ce n'est probablement pas pour vous si",
+      "cibles.no0":"Vous cherchez à staffer une équipe produit complète sur le long terme",
+      "cibles.no1":"Le projet nécessite une disponibilité à temps plein immédiate",
+      "about.label":"À propos","about.title":"Un profil double compétence",
+      "about.p1":"Je suis Baidy Anne, développeur full-stack en alternance chez Inexco Group, spécialiste du contrôle non destructif pour les secteurs naval, nucléaire, pétrochimique et aéronautique. En parallèle, je poursuis ma formation à l'École 42.",
+      "about.p2":"Ce double ancrage — terrain industriel exigeant et culture du code sans filet — nourrit ma façon de construire : des outils robustes, pensés pour un usage réel, du script d'automatisation à l'application web complète.",
+      "about.k1":"Poste actuel","about.v1":"Alternant développeur full-stack — Inexco Group",
+      "about.k2":"Secteur","about.v2":"Contrôle non destructif",
+      "about.k3":"Formation","about.v3":"École 42",
+      "about.k4":"Localisation","about.v4":"France",
+      "about.k5":"Disponibilité","about.v5":"Missions freelance ponctuelles",
+      "projets.label":"Projets","projets.title":"Ce que j'ai construit",
+      "projets.desc":"Une sélection de projets, des outils métier livrés en autonomie aux projets techniques menés en équipe à l'École 42.",
+      "proj.status":"Terminé","proj.linkRepo":"Voir le projet →","proj.linkDemo":"Démo en ligne →",
+      "proj.0.title":"Automatiseur de rapports","proj.0.cat":"Automatisation",
+      "proj.0.pitch":"Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.",
+      "proj.1.title":"Assistant IA sur mesure","proj.1.cat":"Intégration IA",
+      "proj.1.pitch":"Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.",
+      "proj.2.title":"Bot de veille","proj.2.cat":"Veille automatisée",
+      "proj.2.pitch":"Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.",
+      "proj.3.cat":"Projet d'équipe — École 42",
+      "proj.3.pitch":"Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.",
+      "proj.4.cat":"Apprentissage par renforcement — École 42",
+      "proj.4.pitch":"Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.",
+      "competences.label":"Compétences","competences.title":"Stack technique",
+      "competences.desc":"Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42 et les projets vitrine.",
+      "competences.g1":"Langages","competences.g2":"Web &amp; backend","competences.g3":"Données &amp; automatisation",
+      "competences.g4":"IA &amp; machine learning","competences.g5":"Infrastructure &amp; outils","competences.g6":"Bases de données",
+      "competences.streaming":"Streaming","competences.logging":"Logging",
+      "faq.label":"FAQ","faq.title":"Questions fréquentes",
+      "faq.q1":"Quel type de mission peux-tu prendre en charge ?",
+      "faq.a1":"Principalement des projets d'automatisation (scripts, rapports, veille) et d'intégration IA (chatbots, assistants métier, connexion à des API type OpenAI/Gemini), ainsi que des applications web sur mesure de bout en bout.",
+      "faq.q2":"Es-tu disponible à temps plein ?",
+      "faq.a2":"Je suis actuellement en alternance chez Inexco Group et étudiant à l'École 42. Je prends des missions freelance ponctuelles, en dehors de ce cadre — contactez-moi pour évoquer vos délais et disponibilités.",
+      "faq.q3":"Travailles-tu seul ou en équipe ?",
+      "faq.a3":"Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment en tant que tech lead sur ft_transcendence.",
+      "faq.q4":"Comment se déroule une collaboration ?",
+      "faq.a4":"On échange d'abord sur votre besoin et vos contraintes, je propose une approche technique et une estimation, puis je livre par itérations courtes avec des points réguliers pour ajuster en cours de route.",
+      "faq.q5":"Comment te contacter ?",
+      "faq.a5":"Le plus simple est par email ou LinkedIn — les deux sont accessibles directement en bas de page.",
+      "contact.label":"Contact","contact.title":"Un projet d'automatisation ou d'intégration IA à concrétiser ?",
+      "footer.made":"Conçu &amp; développé sur-mesure"
+    },
+    en: {
+      "nav.cibles":"Who this is for","nav.apropos":"About","nav.projets":"Projects","nav.competences":"Skills","nav.faq":"FAQ","nav.contact":"Contact me",
+      "hero.eyebrow":"Available for freelance work",
+      "hero.title":"Full-stack developer, specialized in automation &amp; AI integration.",
+      "hero.sub":"I build custom tools — task automation, web applications, AI integration — to solve real business problems.",
+      "hero.cta1":"Discuss a project","hero.cta2":"View my projects",
+      "hero.stat1":"Projects delivered","hero.stat2":"Years at 42 School","hero.stat3":"Languages mastered","hero.stat4":"Current apprenticeship",
+      "cibles.label":"Who this is for",
+      "cibles.title":"I mainly work with small and mid-sized businesses",
+      "cibles.desc":"Businesses losing time on repetitive tasks, or looking to integrate AI without building an in-house technical team. Here's how to quickly tell if we're a good fit.",
+      "cibles.yesTitle":"We can work together if",
+      "cibles.yes0":"You run a small business, SME, or are self-employed with a concrete process to automate",
+      "cibles.yes1":"You're losing time on repetitive tasks (reports, monitoring, data entry, follow-ups)",
+      "cibles.yes2":"You want to integrate AI into an existing tool without hiring a dedicated team",
+      "cibles.yes3":"You want a single point of contact, from scoping to delivery",
+      "cibles.yes4":"A clear scope and fixed-price project suit you better than open-ended hourly billing",
+      "cibles.noTitle":"This probably isn't for you if",
+      "cibles.no0":"You're looking to staff a full product team long-term",
+      "cibles.no1":"The project requires immediate full-time availability",
+      "about.label":"About","about.title":"A dual-skill background",
+      "about.p1":"I'm Baidy Anne, a full-stack developer on a work-study program at Inexco Group, a company specialized in non-destructive testing for the naval, nuclear, petrochemical, and aerospace industries. Alongside this, I'm completing my studies at 42 School.",
+      "about.p2":"This dual background — demanding industrial fieldwork and a code-first, no-safety-net culture — shapes how I build: robust tools designed for real-world use, from automation scripts to full web applications.",
+      "about.k1":"Current role","about.v1":"Full-stack apprentice developer — Inexco Group",
+      "about.k2":"Industry","about.v2":"Non-destructive testing",
+      "about.k3":"Education","about.v3":"42 School",
+      "about.k4":"Location","about.v4":"France",
+      "about.k5":"Availability","about.v5":"Occasional freelance projects",
+      "projets.label":"Projects","projets.title":"What I've built",
+      "projets.desc":"A selection of projects, from business tools delivered independently to technical team projects at 42 School.",
+      "proj.status":"Completed","proj.linkRepo":"View project →","proj.linkDemo":"Live demo →",
+      "proj.0.title":"Report automation tool","proj.0.cat":"Automation",
+      "proj.0.pitch":"Automatic generation of Excel and PDF reports from a simple CSV file. A command-line script analyzes the data and produces formatted, ready-to-use visual reports — no more manual formatting every week.",
+      "proj.1.title":"Custom AI assistant","proj.1.cat":"AI integration",
+      "proj.1.pitch":"A conversational assistant deployed online, connected to the Gemini API, with streaming responses and conversation memory. Demonstrates end-to-end integration of generative AI into a working product — backend, frontend, and cloud deployment.",
+      "proj.2.title":"Monitoring bot","proj.2.cat":"Automated monitoring",
+      "proj.2.pitch":"A monitoring bot that automatically detects new listings matching specific criteria and sends an email alert as soon as a match appears. Scraping, deduplication, and scheduled execution — so you never miss an opportunity.",
+      "proj.3.cat":"Team project — 42 School",
+      "proj.3.pitch":"A real-time multiplayer game in the style of Slither.io, built as a team with a tech lead role. Authentication, real-time chat, an analytics dashboard, an AI opponent, and Docker/nginx infrastructure with WebSocket — an ambitious technical project run with a team.",
+      "proj.4.cat":"Reinforcement learning — 42 School",
+      "proj.4.pitch":"An agent that learns to play Snake through reinforcement learning (Q-learning), with no hand-coded rules — purely through trial, error, and reward. Rounds out the AI profile by showing algorithm design skills beyond API usage.",
+      "competences.label":"Skills","competences.title":"Technical stack",
+      "competences.desc":"A broad foundation — from low-level (C/C++) to AI integration — built between 42 School and business showcase projects.",
+      "competences.g1":"Languages","competences.g2":"Web &amp; backend","competences.g3":"Data &amp; automation",
+      "competences.g4":"AI &amp; machine learning","competences.g5":"Infrastructure &amp; tools","competences.g6":"Databases",
+      "competences.streaming":"Streaming","competences.logging":"Logging",
+      "faq.label":"FAQ","faq.title":"Frequently asked questions",
+      "faq.q1":"What kind of work can you take on?",
+      "faq.a1":"Mainly automation projects (scripts, reports, monitoring) and AI integration (chatbots, business assistants, connecting to APIs like OpenAI/Gemini), as well as custom end-to-end web applications.",
+      "faq.q2":"Are you available full-time?",
+      "faq.a2":"I'm currently on a work-study program at Inexco Group and studying at 42 School. I take on occasional freelance projects outside of that — reach out to discuss your timeline and availability.",
+      "faq.q3":"Do you work alone or with a team?",
+      "faq.a3":"Both. I deliver independently on shorter projects (automation, AI), and I also have experience working within a team on more ambitious projects, notably as tech lead on ft_transcendence.",
+      "faq.q4":"How does a collaboration work?",
+      "faq.a4":"We start by discussing your needs and constraints, I propose a technical approach and an estimate, then I deliver in short iterations with regular check-ins to adjust along the way.",
+      "faq.q5":"How can I reach you?",
+      "faq.a5":"The easiest way is by email or LinkedIn — both are available directly at the bottom of the page.",
+      "contact.label":"Contact","contact.title":"Have an automation or AI integration project in mind?",
+      "footer.made":"Designed &amp; built custom"
+    }
+  };
+
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      const val = translations[lang][key];
+      if(val !== undefined) el.innerHTML = val;
+    });
+    document.querySelectorAll('.lang-toggle button').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site-lang', lang); }catch(e){}
+  }
+
+  document.querySelectorAll('.lang-toggle button').forEach(btn=>{
+    btn.addEventListener('click', ()=> applyLang(btn.dataset.lang));
+  });
+
+  let initialLang = 'fr';
+  try{
+    const saved = localStorage.getItem('site-lang');
+    if(saved === 'fr' || saved === 'en') initialLang = saved;
+    else if(navigator.language && navigator.language.toLowerCase().startsWith('en')) initialLang = 'en';
+  }catch(e){}
+  applyLang(initialLang);
+
   const els = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
