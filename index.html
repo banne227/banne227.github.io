@@ -202,7 +202,7 @@
       <a href="#projets" class="btn btn-secondary" data-i18n="hero.cta2">Voir mes projets</a>
     </div>
     <div class="hero-stats">
-      <div><div class="num">5</div><div class="lab" data-i18n="hero.stat1">Projets réalisés</div></div>
+      <div><div class="num">4</div><div class="lab" data-i18n="hero.stat1">Projets réalisés</div></div>
       <div><div class="num">2</div><div class="lab" data-i18n="hero.stat2">Ans à l'École 42</div></div>
       <div><div class="num">4</div><div class="lab" data-i18n="hero.stat3">Langages maîtrisés</div></div>
       <div><div class="num">1</div><div class="lab" data-i18n="hero.stat4">Alternance en cours</div></div>
@@ -266,54 +266,44 @@
     <div class="proj-grid">
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title" data-i18n="proj.0.title">Automatiseur de rapports</div><div class="proj-cat" data-i18n="proj.0.cat">Automatisation</div></div>
-          <div class="proj-status" data-i18n="proj.status">Terminé</div>
+          <div><div class="proj-title" data-i18n="proj.inexco.title">Outil de gestion de devis</div><div class="proj-cat" data-i18n="proj.inexco.cat">Outil métier — Inexco Group</div></div>
+          <div class="proj-status" data-i18n="proj.status.prod">En production</div>
         </div>
-        <p class="proj-pitch" data-i18n="proj.0.pitch">Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.</p>
-        <div class="proj-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">matplotlib</span><span class="tag">fpdf</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
+        <p class="proj-pitch" data-i18n="proj.inexco.pitch">Outil web interne de création de devis, utilisé par une trentaine de collaborateurs répartis entre plusieurs agences. Sélection des méthodes en quelques clics, génération automatique du devis, numéros uniques par agence et suivi des statuts en temps réel. Temps de création divisé par environ 3 : des centaines d'heures et des milliers de minutes économisées, et beaucoup moins de frustration sur une tâche répétitive et source d'erreurs. Conçu et développé de A à Z : base de données, API, interface et mise en place du serveur.</p>
+        <div class="proj-stack"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">EJS</span><span class="tag">JavaScript</span><span class="tag">Serveur virtuel</span></div>
+        <div class="proj-links"><span class="disabled" data-i18n="proj.private">Projet privé — présentation détaillée sur demande</span></div>
       </div>
 
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title" data-i18n="proj.1.title">Assistant IA sur mesure</div><div class="proj-cat" data-i18n="proj.1.cat">Intégration IA</div></div>
+          <div><div class="proj-title" data-i18n="proj.ia.title">Assistant IA sur mesure</div><div class="proj-cat" data-i18n="proj.ia.cat">Intégration IA</div></div>
           <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch" data-i18n="proj.1.pitch">Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.</p>
+        <p class="proj-pitch" data-i18n="proj.ia.pitch">Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini API</span><span class="tag">HTML/CSS/JS</span><span class="tag">Render</span></div>
         <div class="proj-links"><a href="https://ai-assistant-eiq1.onrender.com" target="_blank" rel="noopener" data-i18n="proj.linkDemo">Démo en ligne →</a></div>
       </div>
 
       <div class="proj reveal">
         <div class="proj-top">
-          <div><div class="proj-title" data-i18n="proj.2.title">Bot de veille</div><div class="proj-cat" data-i18n="proj.2.cat">Veille automatisée</div></div>
+          <div><div class="proj-title" data-i18n="proj.rap.title">Automatiseur de rapports</div><div class="proj-cat" data-i18n="proj.rap.cat">Automatisation</div></div>
           <div class="proj-status" data-i18n="proj.status">Terminé</div>
         </div>
-        <p class="proj-pitch" data-i18n="proj.2.pitch">Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.</p>
+        <p class="proj-pitch" data-i18n="proj.rap.pitch">Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.</p>
+        <div class="proj-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">openpyxl</span><span class="tag">matplotlib</span><span class="tag">fpdf</span></div>
+        <div class="proj-links"><a href="https://github.com/banne227/rapport-automatise" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top">
+          <div><div class="proj-title" data-i18n="proj.bot.title">Bot de veille</div><div class="proj-cat" data-i18n="proj.bot.cat">Veille automatisée</div></div>
+          <div class="proj-status" data-i18n="proj.status">Terminé</div>
+        </div>
+        <p class="proj-pitch" data-i18n="proj.bot.pitch">Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.</p>
         <div class="proj-stack"><span class="tag">Python</span><span class="tag">requests</span><span class="tag">BeautifulSoup</span><span class="tag">cron</span><span class="tag">SMTP</span></div>
         <div class="proj-links"><a href="https://github.com/banne227/monitoring_bot" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
       </div>
-
-      <div class="proj reveal">
-        <div class="proj-top">
-          <div><div class="proj-title">ft_transcendence</div><div class="proj-cat" data-i18n="proj.3.cat">Projet d'équipe — École 42</div></div>
-          <div class="proj-status" data-i18n="proj.status">Terminé</div>
-        </div>
-        <p class="proj-pitch" data-i18n="proj.3.pitch">Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.</p>
-        <div class="proj-stack"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">MongoDB</span><span class="tag">Tailwind CSS</span><span class="tag">Docker / nginx</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/ft_transcendence" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-top">
-          <div><div class="proj-title">Learn2Slither</div><div class="proj-cat" data-i18n="proj.4.cat">Apprentissage par renforcement — École 42</div></div>
-          <div class="proj-status" data-i18n="proj.status">Terminé</div>
-        </div>
-        <p class="proj-pitch" data-i18n="proj.4.pitch">Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.</p>
-        <div class="proj-stack"><span class="tag">Python</span><span class="tag">Q-learning</span><span class="tag">pygame</span></div>
-        <div class="proj-links"><a href="https://github.com/banne227/learn2slither" target="_blank" rel="noopener" data-i18n="proj.linkRepo">Voir le projet →</a></div>
-      </div>
-    </div>  
+    </div>
   </div>
 </section>
 
@@ -321,7 +311,7 @@
   <div class="wrap">
     <div class="sec-label" data-i18n="competences.label">Compétences</div>
     <h2 class="sec-title" data-i18n="competences.title">Stack technique</h2>
-    <p class="sec-desc" data-i18n="competences.desc">Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42 et les projets vitrine.</p>
+    <p class="sec-desc" data-i18n="competences.desc">Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42, l'alternance et les projets vitrine.</p>
     <div class="skill-groups">
       <div class="skill-group reveal">
         <h4 data-i18n="competences.g1">Langages</h4>
@@ -329,7 +319,7 @@
       </div>
       <div class="skill-group reveal">
         <h4 data-i18n="competences.g2">Web &amp; backend</h4>
-        <div class="skill-list"><span>FastAPI</span><span>Node.js</span><span>Socket.io</span><span>WebSocket</span><span>REST</span><span>HTML / CSS / JS</span></div>
+        <div class="skill-list"><span>Node.js</span><span>FastAPI</span><span>Socket.io</span><span>WebSocket</span><span>REST</span><span>HTML / CSS / JS</span><span>EJS</span></div>
       </div>
       <div class="skill-group reveal">
         <h4 data-i18n="competences.g3">Données &amp; automatisation</h4>
@@ -337,15 +327,15 @@
       </div>
       <div class="skill-group reveal">
         <h4 data-i18n="competences.g4">IA &amp; machine learning</h4>
-        <div class="skill-list"><span>API Gemini</span><span data-i18n="competences.streaming">Streaming</span><span>Q-learning</span><span>pygame</span></div>
+        <div class="skill-list"><span>API Gemini</span><span data-i18n="competences.streaming">Streaming</span><span>Q-learning</span></div>
       </div>
       <div class="skill-group reveal">
         <h4 data-i18n="competences.g5">Infrastructure &amp; outils</h4>
-        <div class="skill-list"><span>Docker</span><span>nginx</span><span>Git / GitHub</span><span>Render</span><span>SMTP</span><span data-i18n="competences.logging">Logging</span></div>
+        <div class="skill-list"><span data-i18n="competences.server">Mise en place de serveur</span><span>Docker</span><span>nginx</span><span>Git / GitHub</span><span>Render</span><span>SMTP</span><span data-i18n="competences.logging">Logging</span></div>
       </div>
       <div class="skill-group reveal">
         <h4 data-i18n="competences.g6">Bases de données</h4>
-        <div class="skill-list"><span>MongoDB</span></div>
+        <div class="skill-list"><span>PostgreSQL</span><span>MongoDB</span></div>
       </div>
     </div>
   </div>
@@ -366,7 +356,7 @@
       </details>
       <details class="faq-item">
         <summary><span data-i18n="faq.q3">Travailles-tu seul ou en équipe ?</span><span class="plus">+</span></summary>
-        <div class="faq-a" data-i18n="faq.a3">Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment en tant que tech lead sur ft_transcendence.</div>
+        <div class="faq-a" data-i18n="faq.a3">Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment dans le cadre de mon alternance et de mes projets à l'École 42.</div>
       </details>
       <details class="faq-item">
         <summary><span data-i18n="faq.q4">Comment se déroule une collaboration ?</span><span class="plus">+</span></summary>
@@ -429,29 +419,28 @@
       "about.k5":"Disponibilité","about.v5":"Missions freelance ponctuelles",
       "projets.label":"Projets","projets.title":"Ce que j'ai construit",
       "projets.desc":"Une sélection de projets, des outils métier livrés en autonomie aux projets techniques menés en équipe à l'École 42.",
-      "proj.status":"Terminé","proj.linkRepo":"Voir le projet →","proj.linkDemo":"Démo en ligne →",
-      "proj.0.title":"Automatiseur de rapports","proj.0.cat":"Automatisation",
-      "proj.0.pitch":"Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.",
-      "proj.1.title":"Assistant IA sur mesure","proj.1.cat":"Intégration IA",
-      "proj.1.pitch":"Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.",
-      "proj.2.title":"Bot de veille","proj.2.cat":"Veille automatisée",
-      "proj.2.pitch":"Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.",
-      "proj.3.cat":"Projet d'équipe — École 42",
-      "proj.3.pitch":"Jeu multijoueur en temps réel façon Slither.io, développé en équipe avec rôle de tech lead. Authentification, chat temps réel, dashboard analytics, IA adverse et infrastructure Docker/nginx avec WebSocket — un projet technique ambitieux mené à plusieurs.",
-      "proj.4.cat":"Apprentissage par renforcement — École 42",
-      "proj.4.pitch":"Agent qui apprend à jouer au serpent par renforcement (Q-learning), sans règle codée à la main — uniquement par essais, erreurs et récompenses. Complète le profil IA en montrant une compétence de conception d'algorithme d'apprentissage, au-delà de l'usage d'API.",
+      "proj.status":"Terminé","proj.status.prod":"En production","proj.linkRepo":"Voir le projet →","proj.linkDemo":"Démo en ligne →",
+      "proj.private":"Projet privé — présentation détaillée sur demande",
+      "proj.inexco.title":"Outil de gestion de devis","proj.inexco.cat":"Outil métier — Inexco Group",
+      "proj.inexco.pitch":"Outil web interne de création de devis, utilisé par une trentaine de collaborateurs répartis entre plusieurs agences. Sélection des méthodes en quelques clics, génération automatique du devis, numéros uniques par agence et suivi des statuts en temps réel. Temps de création divisé par environ 3 : des centaines d'heures et des milliers de minutes économisées, et beaucoup moins de frustration sur une tâche répétitive et source d'erreurs. Conçu et développé de A à Z : base de données, API, interface et mise en place du serveur.",
+      "proj.ia.title":"Assistant IA sur mesure","proj.ia.cat":"Intégration IA",
+      "proj.ia.pitch":"Assistant conversationnel déployé en ligne, connecté à l'API Gemini, avec réponses en streaming et mémoire de conversation. Démontre l'intégration d'une IA générative dans un produit fonctionnel de bout en bout — backend, frontend et déploiement cloud.",
+      "proj.rap.title":"Automatiseur de rapports","proj.rap.cat":"Automatisation",
+      "proj.rap.pitch":"Génération automatique de rapports Excel et PDF à partir d'un simple fichier CSV. Un script en ligne de commande analyse les données et produit des rapports formatés et visuels, prêts à l'emploi — fini la mise en forme manuelle répétée chaque semaine.",
+      "proj.bot.title":"Bot de veille","proj.bot.cat":"Veille automatisée",
+      "proj.bot.pitch":"Bot de surveillance qui détecte automatiquement les nouvelles annonces correspondant à des critères précis et envoie une notification email dès qu'une correspondance apparaît. Scraping, déduplication et exécution planifiée — pour ne plus rater une opportunité.",
       "competences.label":"Compétences","competences.title":"Stack technique",
-      "competences.desc":"Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42 et les projets vitrine.",
+      "competences.desc":"Un socle large — du bas niveau (C/C++) à l'intégration IA — acquis entre l'École 42, l'alternance et les projets vitrine.",
       "competences.g1":"Langages","competences.g2":"Web &amp; backend","competences.g3":"Données &amp; automatisation",
       "competences.g4":"IA &amp; machine learning","competences.g5":"Infrastructure &amp; outils","competences.g6":"Bases de données",
-      "competences.streaming":"Streaming","competences.logging":"Logging",
+      "competences.streaming":"Streaming","competences.logging":"Logging","competences.server":"Mise en place de serveur",
       "faq.label":"FAQ","faq.title":"Questions fréquentes",
       "faq.q1":"Quel type de mission peux-tu prendre en charge ?",
       "faq.a1":"Principalement des projets d'automatisation (scripts, rapports, veille) et d'intégration IA (chatbots, assistants métier, connexion à des API type OpenAI/Gemini), ainsi que des applications web sur mesure de bout en bout.",
       "faq.q2":"Es-tu disponible à temps plein ?",
       "faq.a2":"Je suis actuellement en alternance chez Inexco Group et étudiant à l'École 42. Je prends des missions freelance ponctuelles, en dehors de ce cadre — contactez-moi pour évoquer vos délais et disponibilités.",
       "faq.q3":"Travailles-tu seul ou en équipe ?",
-      "faq.a3":"Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment en tant que tech lead sur ft_transcendence.",
+      "faq.a3":"Les deux. Je livre en autonomie sur des projets courts (automatisation, IA), et j'ai également l'expérience du travail en équipe sur des projets plus ambitieux, notamment dans le cadre de mon alternance et de mes projets à l'École 42.",
       "faq.q4":"Comment se déroule une collaboration ?",
       "faq.a4":"On échange d'abord sur votre besoin et vos contraintes, je propose une approche technique et une estimation, puis je livre par itérations courtes avec des points réguliers pour ajuster en cours de route.",
       "faq.q5":"Comment te contacter ?",
@@ -488,29 +477,28 @@
       "about.k5":"Availability","about.v5":"Occasional freelance projects",
       "projets.label":"Projects","projets.title":"What I've built",
       "projets.desc":"A selection of projects, from business tools delivered independently to technical team projects at 42 School.",
-      "proj.status":"Completed","proj.linkRepo":"View project →","proj.linkDemo":"Live demo →",
-      "proj.0.title":"Report automation tool","proj.0.cat":"Automation",
-      "proj.0.pitch":"Automatic generation of Excel and PDF reports from a simple CSV file. A command-line script analyzes the data and produces formatted, ready-to-use visual reports — no more manual formatting every week.",
-      "proj.1.title":"Custom AI assistant","proj.1.cat":"AI integration",
-      "proj.1.pitch":"A conversational assistant deployed online, connected to the Gemini API, with streaming responses and conversation memory. Demonstrates end-to-end integration of generative AI into a working product — backend, frontend, and cloud deployment.",
-      "proj.2.title":"Monitoring bot","proj.2.cat":"Automated monitoring",
-      "proj.2.pitch":"A monitoring bot that automatically detects new listings matching specific criteria and sends an email alert as soon as a match appears. Scraping, deduplication, and scheduled execution — so you never miss an opportunity.",
-      "proj.3.cat":"Team project — 42 School",
-      "proj.3.pitch":"A real-time multiplayer game in the style of Slither.io, built as a team with a tech lead role. Authentication, real-time chat, an analytics dashboard, an AI opponent, and Docker/nginx infrastructure with WebSocket — an ambitious technical project run with a team.",
-      "proj.4.cat":"Reinforcement learning — 42 School",
-      "proj.4.pitch":"An agent that learns to play Snake through reinforcement learning (Q-learning), with no hand-coded rules — purely through trial, error, and reward. Rounds out the AI profile by showing algorithm design skills beyond API usage.",
+      "proj.status":"Completed","proj.status.prod":"In production","proj.linkRepo":"View project →","proj.linkDemo":"Live demo →",
+      "proj.private":"Private project — detailed walkthrough on request",
+      "proj.inexco.title":"Quote management tool","proj.inexco.cat":"Business tool — Inexco Group",
+      "proj.inexco.pitch":"Internal web tool for creating quotes, used by around thirty staff across several branches. Methods selected in a few clicks, quotes generated automatically, unique numbering per branch, and real-time status tracking. Quote creation time divided by roughly 3: hundreds of hours and thousands of minutes saved, and far less frustration on a repetitive, error-prone task. Designed and built end to end: database, API, interface, and server setup.",
+      "proj.ia.title":"Custom AI assistant","proj.ia.cat":"AI integration",
+      "proj.ia.pitch":"A conversational assistant deployed online, connected to the Gemini API, with streaming responses and conversation memory. Demonstrates end-to-end integration of generative AI into a working product — backend, frontend, and cloud deployment.",
+      "proj.rap.title":"Report automation tool","proj.rap.cat":"Automation",
+      "proj.rap.pitch":"Automatic generation of Excel and PDF reports from a simple CSV file. A command-line script analyzes the data and produces formatted, ready-to-use visual reports — no more manual formatting every week.",
+      "proj.bot.title":"Monitoring bot","proj.bot.cat":"Automated monitoring",
+      "proj.bot.pitch":"A monitoring bot that automatically detects new listings matching specific criteria and sends an email alert as soon as a match appears. Scraping, deduplication, and scheduled execution — so you never miss an opportunity.",
       "competences.label":"Skills","competences.title":"Technical stack",
-      "competences.desc":"A broad foundation — from low-level (C/C++) to AI integration — built between 42 School and business showcase projects.",
+      "competences.desc":"A broad foundation — from low-level (C/C++) to AI integration — built across 42 School, my apprenticeship, and business showcase projects.",
       "competences.g1":"Languages","competences.g2":"Web &amp; backend","competences.g3":"Data &amp; automation",
       "competences.g4":"AI &amp; machine learning","competences.g5":"Infrastructure &amp; tools","competences.g6":"Databases",
-      "competences.streaming":"Streaming","competences.logging":"Logging",
+      "competences.streaming":"Streaming","competences.logging":"Logging","competences.server":"Server setup",
       "faq.label":"FAQ","faq.title":"Frequently asked questions",
       "faq.q1":"What kind of work can you take on?",
       "faq.a1":"Mainly automation projects (scripts, reports, monitoring) and AI integration (chatbots, business assistants, connecting to APIs like OpenAI/Gemini), as well as custom end-to-end web applications.",
       "faq.q2":"Are you available full-time?",
       "faq.a2":"I'm currently on a work-study program at Inexco Group and studying at 42 School. I take on occasional freelance projects outside of that — reach out to discuss your timeline and availability.",
       "faq.q3":"Do you work alone or with a team?",
-      "faq.a3":"Both. I deliver independently on shorter projects (automation, AI), and I also have experience working within a team on more ambitious projects, notably as tech lead on ft_transcendence.",
+      "faq.a3":"Both. I deliver independently on shorter projects (automation, AI), and I also have experience working within a team on more ambitious projects, through my apprenticeship and my projects at 42 School.",
       "faq.q4":"How does a collaboration work?",
       "faq.a4":"We start by discussing your needs and constraints, I propose a technical approach and an estimate, then I deliver in short iterations with regular check-ins to adjust along the way.",
       "faq.q5":"How can I reach you?",
